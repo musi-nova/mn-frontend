@@ -12,6 +12,8 @@
 <body>
     <img src="logo.png" alt="musi-nova logo" style="width: 20%; height: 20%;">
     <h2>Creating opportunity's for musicians</h2>
+    <!-- ping the API with htmx to wake it up as it has a cold start -->
+    <div hx-get="https://mn-api-hvxv.onrender.com" hx-trigger="load"></div>
     <!-- add a search bar that calls the localhost API using htmx -->
     <div>
         <input type="text" id="search-query" name="query" placeholder="Search for artists">
