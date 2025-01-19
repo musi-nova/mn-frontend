@@ -20,9 +20,9 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: Lara,
         options: {
-          darkModeSelector: true || 'none',
+          darkModeSelector: false || 'none',
         },
       },
     }),

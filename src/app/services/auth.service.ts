@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { User, RegisterPostData, LoginPostData } from '../interfaces/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // private baseUrl = 'http://localhost:8080';
-  private baseUrl = 'https://mn-api-hvxv.onrender.com';
+  private baseUrl = 'http://localhost:8080';
+  // private baseUrl = 'https://mn-api-hvxv.onrender.com';
+  private token: string | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +30,17 @@ export class AuthService {
       'Accept': 'application/json'
     });
 
-    return this.http.post(`${this.baseUrl}/login`, body.toString(), { headers });
+    return this.http.post(`${this.baseUrl}/login`, body.toString(), { headers })
+    .pipe(
+      tap((response: any) => {
+        this.token = response.access_token;
+        console.log('Token:', this.token);
+      }
+    ));
+  }
+
+  getToken(): string | null {
+    return this.token;
   }
 
 }

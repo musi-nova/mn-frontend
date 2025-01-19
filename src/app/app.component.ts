@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,9 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     ToastModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
