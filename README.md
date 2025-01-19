@@ -4,7 +4,7 @@ The Musi-nova frontend which can be found at https://musi-nova.com
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
 
 ## Deploy (we use angular-cli-gh-pages) 
-- `ng deploy --base-href=/mn-frontend/`
+- `ng deploy --base-href=/`
 
 ## Development server
 

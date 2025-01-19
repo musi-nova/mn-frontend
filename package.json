@@ -1,5 +1,5 @@
 {
-  "name": "mn-frontend-v2",
+  "name": "mn-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
