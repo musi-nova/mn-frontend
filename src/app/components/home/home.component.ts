@@ -1,3 +1,4 @@
+import { animation } from '@angular/animations';
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -51,6 +52,7 @@ export class HomeComponent implements OnInit {
     this.options = {
       responsive: true,
       maintainAspectRatio: false,
+      animation: false,
       plugins: {
         legend: {
           display: false // Hide the legend
@@ -92,7 +94,7 @@ export class HomeComponent implements OnInit {
         y: {
           ticks: {
             display: false, // Hide y-axis labels
-            maxTicksLimit: 5 // Limit the number of y-axis ticks
+            maxTicksLimit: 10// Limit the number of y-axis ticks
           },
           grid: {
             display: true // Show y-axis grid lines
@@ -104,7 +106,7 @@ export class HomeComponent implements OnInit {
           tension: 0.4
         },
         point: {
-          radius: 0 // Hide the dots on the lines
+          radius: 0.1 // Hide the dots on the lines
         }
       },
       layout: {

@@ -24,13 +24,36 @@ h5 {
 }
 
 .button-row button {
+    position: relative; // Position relative for pseudo-element
     padding: 10px 20px; // Padding for buttons
     border: 2px solid #461315; // Border color and width
-    border-radius: 5px; // Rounded corners
+    border-radius: 25px; // Rounded corners
     background-color: transparent; // Transparent background
     color: #461315; // Button text color
     cursor: pointer; // Pointer cursor on hover
-    transition: background-color 0.3s, color 0.3s; // Smooth transition for background and text color
+    overflow: hidden; // Hide overflow for pseudo-element
+    transition: color 0.3s; // Smooth transition for text color
+    z-index: 1; // Ensure text is above the pseudo-element
+}
+
+.button-row button::before {
+    content: ''; // Empty content for pseudo-element
+    position: absolute; // Position absolute for pseudo-element
+    top: 100%; // Start from the bottom
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #69a67c2c; // Background color for fill
+    transition: top 0.3s; // Smooth transition for fill
+    z-index: 0; // Place behind the text
+}
+
+.button-row button:hover:not(.active)::before {
+    top: 0; // Move to the top on hover
+}
+
+.button-row button:hover:not(.active) {
+    color: #fff; // Change text color on hover
 }
 
 .button-row button.active {
@@ -46,6 +69,5 @@ h5 {
 .chart-container {
     width: 60%; // Make the chart container 60% of the screen width
     margin-top: 20px; // Add some space above the chart
-    // height: 1000px; // Set a fixed height for the chart
     background-color: #fff; // White background for the chart
 }
