@@ -1,2 +1,24 @@
-<p>home works!</p>
-<p-button label="Sign Out" (click)="logout()"></p-button>
+<div class="main-content">
+    <h1>
+        Promote your music on Spotify and gain real listeners
+    </h1>
+
+    <h5>
+        Reach a wider audience and boost your music career with our Meta Ads platform. Whether you're an up-and-coming artist or an established musician, we have the tools to help you succeed.
+    </h5>
+    
+    <!-- <p-button label="Sign Out" (click)="logout()"></p-button> -->
+
+    <div class="button-row">
+        <button (click)="updateChartData('Indie Rock', $event)" [class.active]="activeButton === 'Indie Rock'">Indie Rock</button>
+        <button (click)="updateChartData('Indie Pop', $event)" [class.active]="activeButton === 'Indie Pop'">Indie Pop</button>
+        <button (click)="updateChartData('Pop Fusion', $event)" [class.active]="activeButton === 'Pop Fusion'">Pop Fusion</button>
+        <button (click)="updateChartData('Electronic', $event)" [class.active]="activeButton === 'Electronic'">Electronic</button>
+    </div>
+
+    <!-- add a multi line plot using primeng-->
+    <div class="chart-container">
+        <p-chart type="line" [data]="data" [options]="options" height="400px"></p-chart>
+    </div>
+</div>
+

@@ -1,0 +1,51 @@
+.main-content {
+    background: linear-gradient(to bottom, #fffdd0, #69A67C, #fffdd0);
+    display: flex;
+    flex-direction: column; // Ensure elements are stacked vertically
+    justify-content: center;
+    align-items: center;
+    height: 80vh; // Ensure the main-content takes the full height of the viewport
+    text-align: center; // Center the text horizontally
+    padding: 20px; // Add some padding for better spacing
+}
+
+h1 {
+    margin-bottom: 20px; // Add some space below the h1 element
+}
+
+h5 {
+    margin-top: 0; // Remove any default margin above the h5 element
+    margin-bottom: 20px; // Add some space below the h5 element
+}
+
+.button-row {
+    display: flex;
+    gap: 10px; // Space between buttons
+}
+
+.button-row button {
+    padding: 10px 20px; // Padding for buttons
+    border: 2px solid #461315; // Border color and width
+    border-radius: 5px; // Rounded corners
+    background-color: transparent; // Transparent background
+    color: #461315; // Button text color
+    cursor: pointer; // Pointer cursor on hover
+    transition: background-color 0.3s, color 0.3s; // Smooth transition for background and text color
+}
+
+.button-row button.active {
+    background-color: #461315; // Filled background color for active button
+    color: #fff; // Text color for active button
+}
+
+.button-row button:active {
+    background-color: #461315; // Filled background color on click
+    color: #fff; // Text color on click
+}
+
+.chart-container {
+    width: 60%; // Make the chart container 60% of the screen width
+    margin-top: 20px; // Add some space above the chart
+    // height: 1000px; // Set a fixed height for the chart
+    background-color: #fff; // White background for the chart
+}

@@ -1,0 +1,70 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #ffffff;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 120px;
+  height: 120px;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.links-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  margin-right: 100px;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li {
+  display: inline;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+.nav-list .bold-button a {
+  background-color: #461315; // Fill color
+  color: #fff; // Text color
+  padding: 10px 20px; // Padding for better appearance
+  border-radius: 25px; // Rounded corners
+}
+
+.nav-list .outline-button a {
+  border: 2px solid #461315; // Border color and width
+  color: #000; // Text color
+  padding: 10px 20px; // Padding for better appearance
+  border-radius: 25px; // Rounded corners
+  background-color: transparent; // Transparent background
+}
+
+.nav-list .outline-button a:hover {
+  background-color: #461315; // Background color on hover
+  color: #fff; // Text color on hover
+}
