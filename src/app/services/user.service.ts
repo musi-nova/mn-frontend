@@ -6,8 +6,8 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8080';
-  // private baseUrl = 'https://mn-api-hvxv.onrender.com';
+  // private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://mn-api-hvxv.onrender.com';
   private token: string | null = null
   
   constructor(private http: HttpClient) { }
