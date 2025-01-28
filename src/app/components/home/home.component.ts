@@ -1,5 +1,5 @@
-import { animation } from '@angular/animations';
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
@@ -7,12 +7,9 @@ import { ChartModule } from 'primeng/chart';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonModule,
-    RouterLink,
-    ChartModule
-  ],
+  imports: [ButtonModule, RouterLink, ChartModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   private router = inject(Router);
@@ -20,39 +17,26 @@ export class HomeComponent implements OnInit {
   options: any;
   activeButton: string = 'Indie Rock';
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, private http: HttpClient) {}
 
   ngOnInit() {
-    this.initializeChartData();
     this.initializeChartOptions();
+    this.initializeChartData();
   }
 
   initializeChartData() {
-    this.data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label: 'Money Spent',
-          data: this.generateRandomData(),
-          fill: true,
-          backgroundColor: 'rgba(70, 19, 21, 0.34)', // Set the fill color with transparency
-          borderColor: '#461315'
-        },
-        {
-          label: 'Amount of Views',
-          data: this.generateRandomData(),
-          fill: false,
-          borderColor: '#66BB6A'
-        }
-      ]
-    };
+    const fileName = this.activeButton.toLowerCase().replace(' ', '-') + '.json';
+    this.http.get<any>(`assets/${fileName}`).subscribe((data: any) => {
+      this.data = data;
+      this.cdr.detectChanges(); // Trigger change detection
+    });
   }
 
   initializeChartOptions() {
     this.options = {
       responsive: true,
       maintainAspectRatio: false,
-      animation: false,
+      animation: false, // Turn off the initial animation
       plugins: {
         legend: {
           display: false // Hide the legend
@@ -74,8 +58,8 @@ export class HomeComponent implements OnInit {
         x: {
           title: {
             display: true,
-            text: 'Time', // X-axis label
-            align: 'end', // Align the label to the top
+            text: 'Metrics', // X-axis label
+            align: 'start', // Align the label to the top
             font: {
               size: 14
             },
@@ -94,7 +78,7 @@ export class HomeComponent implements OnInit {
         y: {
           ticks: {
             display: false, // Hide y-axis labels
-            maxTicksLimit: 10// Limit the number of y-axis ticks
+            maxTicksLimit: 5 // Limit the number of y-axis ticks
           },
           grid: {
             display: true // Show y-axis grid lines
@@ -106,7 +90,7 @@ export class HomeComponent implements OnInit {
           tension: 0.4
         },
         point: {
-          radius: 0.1 // Hide the dots on the lines
+          radius: 0 // Hide the dots on the lines
         }
       },
       layout: {
@@ -122,30 +106,13 @@ export class HomeComponent implements OnInit {
   }
 
   updateChartData(genre: string, event: Event) {
-    this.data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label: `Money Spent on ${genre}`,
-          data: this.generateRandomData(),
-          fill: true,
-          backgroundColor: 'rgba(70, 19, 21, 0.34)', // Set the fill color with transparency
-          borderColor: '#461315'
-        },
-        {
-          label: `Amount of Views for ${genre}`,
-          data: this.generateRandomData(),
-          fill: false,
-          borderColor: '#66BB6A'
-        }
-      ]
-    };
-    this.activeButton = genre;
-    this.cdr.detectChanges(); // Trigger change detection
-  }
-
-  generateRandomData() {
-    return Array.from({ length: 7 }, () => Math.floor(Math.random() * 100));
+    const fileName = genre.toLowerCase().replace(' ', '-') + '.json';
+    this.http.get<any>(`assets/${fileName}`).subscribe(data => {
+      this.data = data;
+      console.log(this.data);
+      this.activeButton = genre;
+      this.cdr.detectChanges(); // Trigger change detection
+    });
   }
 
   logout() {

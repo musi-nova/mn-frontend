@@ -1,13 +1,13 @@
 <div class="main-content">
-    <h1>
-        Promote your music on Spotify and gain real listeners
-    </h1>
+    <div class="tagline">
+        <h1>
+            Promote your music on Spotify and gain real listeners
+        </h1>
 
-    <h5>
-        Reach a wider audience and boost your music career with our Meta Ads platform. Whether you're an up-and-coming artist or an established musician, we have the tools to help you succeed.
-    </h5>
-    
-    <!-- <p-button label="Sign Out" (click)="logout()"></p-button> -->
+        <h4>
+            Reach a wider audience and boost your music career with our Meta Ads platform. Whether you're an up-and-coming artist or an established musician, we have the tools to help you succeed.
+        </h4>
+    </div> 
 
     <div class="button-row">
         <button (click)="updateChartData('Indie Rock', $event)" [class.active]="activeButton === 'Indie Rock'">Indie Rock</button>
@@ -19,6 +19,36 @@
     <!-- add a multi line plot using primeng-->
     <div class="chart-container">
         <p-chart type="line" [data]="data" [options]="options" height="400px"></p-chart>
+    </div>
+
+    <div class="button-row">
+        <button [routerLink]="['/login']">See demo</button>
+    </div>
+
+    <div class="tagline">
+        <h5>
+            Stop wasting money pitching—start growing your listeners today        </h5>
+        <h1>
+            Are you tired of pitching your music to playlists without success?
+        </h1>
+    </div>
+    <div class="image-row">
+        <div class="image-plus-description">
+            <img src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Guitar" />
+            <p>On average artists spend €300 for 50 streams of one song</p>
+        </div>
+        <div class="image-plus-description">
+            <img src="https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Dj" />
+            <p>On average artists spend €300 for 50 streams of one song</p>
+        </div>
+        <div class="image-plus-description">
+            <img src="https://images.pexels.com/photos/210907/pexels-photo-210907.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Piano" />
+            <p>On average artists spend €300 for 50 streams of one song</p>
+        </div>
+        <div class="image-plus-description">
+            <img src="https://images.pexels.com/photos/2601192/pexels-photo-2601192.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Guitar" />
+            <p>On average artists spend €300 for 50 streams of one song</p>
+        </div>
     </div>
 </div>
 

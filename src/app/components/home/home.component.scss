@@ -4,13 +4,23 @@
     flex-direction: column; // Ensure elements are stacked vertically
     justify-content: center;
     align-items: center;
-    height: 80vh; // Ensure the main-content takes the full height of the viewport
+    height: 170vh; // Ensure the main-content takes the full height of the viewport
     text-align: center; // Center the text horizontally
     padding: 20px; // Add some padding for better spacing
 }
 
+.tagline {
+    width: 50%; // Limit the width of the tagline
+    margin-top: 50px; // Add some space above the tagline
+}
+
 h1 {
     margin-bottom: 20px; // Add some space below the h1 element
+}
+
+h4 {
+    margin-top: 0; // Remove any default margin above the h5 element
+    margin-bottom: 20px; // Add some space below the h5 element
 }
 
 h5 {
@@ -21,6 +31,7 @@ h5 {
 .button-row {
     display: flex;
     gap: 10px; // Space between buttons
+    margin-top: 50px;
 }
 
 .button-row button {
@@ -70,4 +81,19 @@ h5 {
     width: 60%; // Make the chart container 60% of the screen width
     margin-top: 20px; // Add some space above the chart
     background-color: #fff; // White background for the chart
+    border-radius: 10px; // Rounded corners for the chart
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between; // Distribute images evenly
+    align-items: center; // Center images vertically
+    width: 50%; // Make the image row take the full width of the parent
+    margin-top: 20px; // Add space above the image row
+}
+
+.image-row img {
+    max-width: 200px; // Set a maximum width for the images
+    height: auto; // Maintain the aspect ratio
+    border-radius: 10%; // Round the corners of the images
 }

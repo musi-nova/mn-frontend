@@ -7,7 +7,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HeaderComponent } from './components/header/header.component';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
