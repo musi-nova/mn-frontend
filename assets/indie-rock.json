@@ -1,0 +1,18 @@
+{
+    "labels": ["January", "February", "March", "April", "May", "June", "July"],
+    "datasets": [
+      {
+        "label": "Money Spent",
+        "data": [1, 2, 3, 81, 56, 55, 40],
+        "fill": true,
+        "backgroundColor": "rgba(70, 19, 21, 0.34)",
+        "borderColor": "#461315"
+      },
+      {
+        "label": "Amount of Views",
+        "data": [28, 48, 40, 19, 86, 27, 90],
+        "fill": false,
+        "borderColor": "#66BB6A"
+      }
+    ]
+  }
