@@ -7,8 +7,7 @@ import { User, RegisterPostData, LoginPostData } from '../interfaces/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  // private baseUrl = 'http://localhost:8080';
-  private baseUrl = 'https://mn-api-hvxv.onrender.com';
+  private baseUrl = 'https://mn-api.jms.rocks';
   private token: string | null = null;
 
   constructor(private http: HttpClient) { }
