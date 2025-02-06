@@ -1,1 +1,9 @@
-<div class="image-editor-container" #imageEditorContainer></div>
+<div class="image-selector">
+    <label for="imageSelect">Choose an image:</label>
+    <select id="imageSelect" (change)="onImageSelect($event)">
+        <option *ngFor="let url of imageUrls" [value]="url">{{ url }}</option>
+    </select>
+</div>
+<div class="nested-container">
+    <div class="image-editor-container" #imageEditorContainer></div>
+</div>
