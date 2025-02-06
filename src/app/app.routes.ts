@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PlansComponent } from './components/plans/plans.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ImageEditorComponent } from './components/image-editor/image-editor.component';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'plans', component: PlansComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'image-editor', component: ImageEditorComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
