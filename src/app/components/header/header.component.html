@@ -4,8 +4,8 @@
             <img src="logo.png" alt="Logo" />
         </a>
     </div>
-    <div class="links-container">
-        <ul class="nav-list">
+    <nav class="nav-links">
+        <ul class="links-container">
             <li><a [routerLink]="['/login']">See demo</a></li>
             <li><a [routerLink]="['/login']">Pricing</a></li>
             <li><a [routerLink]="['/login']">Contact us</a></li>
@@ -13,5 +13,10 @@
             <li class="outline-button"><a [routerLink]="['/login']">Log in</a></li>
             <li class="bold-button"><a [routerLink]="['/register']">Try for free</a></li>
         </ul>
-    </div>
+    </nav>
+    <div class="hamburger-menu" (click)="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
 </header>

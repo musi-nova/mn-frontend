@@ -4,67 +4,113 @@ header {
   align-items: center;
   padding: 0 20px;
   background-color: #ffffff;
+  position: fixed; // Make the header fixed
+  top: 0; // Position it at the top of the page
+  width: 100%; // Ensure it spans the full width of the page
+  z-index: 1000; // Ensure it is above other content
+
+
+  .logo-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    img {
+      width: 120px;
+      height: 120px;
+      padding: 20px;
+      margin-left: 20px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+
+    .links-container {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 0 10px;
+
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      .bold-button a {
+        background-color: #461315; // Fill color
+        color: #fff; // Text color
+        padding: 10px 20px; // Padding for better appearance
+        border-radius: 25px; // Rounded corners
+      }
+      
+      .outline-button a {
+        border: 2px solid #461315; // Border color and width
+        color: #000; // Text color
+        padding: 10px 20px; // Padding for better appearance
+        border-radius: 25px; // Rounded corners
+        background-color: transparent; // Transparent background
+      }
+      
+      .outline-button a:hover {
+        background-color: #461315; // Background color on hover
+        color: #fff; // Text color on hover
+      }
+    }
+  }
+
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+      .links-container {
+        flex-direction: column;
+
+        li {
+          margin: 10px 0;
+        }
+      }
+    }
+
+    .hamburger-menu {
+      display: flex;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+  }
 }
 
-.logo-container {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.logo-container img {
-  width: 120px;
-  height: 120px;
-  padding: 20px;
-  margin-left: 20px;
-}
-
-.links-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-grow: 1;
-  margin-right: 100px;
-}
-
-.nav-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-list li {
+li {
   display: inline;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-}
-
-.nav-list a:hover {
-  text-decoration: underline;
-}
-
-.nav-list .bold-button a {
-  background-color: #461315; // Fill color
-  color: #fff; // Text color
-  padding: 10px 20px; // Padding for better appearance
-  border-radius: 25px; // Rounded corners
-}
-
-.nav-list .outline-button a {
-  border: 2px solid #461315; // Border color and width
-  color: #000; // Text color
-  padding: 10px 20px; // Padding for better appearance
-  border-radius: 25px; // Rounded corners
-  background-color: transparent; // Transparent background
-}
-
-.nav-list .outline-button a:hover {
-  background-color: #461315; // Background color on hover
-  color: #fff; // Text color on hover
 }

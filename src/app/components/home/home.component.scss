@@ -4,34 +4,74 @@
     flex-direction: column; // Ensure elements are stacked vertically
     justify-content: center;
     align-items: center;
-    height: 170vh; // Ensure the main-content takes the full height of the viewport
     text-align: center; // Center the text horizontally
+    padding: 20px; // Add some padding for better spacing
+    padding-top: 100px; // Add padding to the top to avoid overlap with the header
+
+    @media (max-width: 768px) {
+        height: auto; // Adjust height for smaller screens
+        padding: 10px; // Reduce padding for smaller screens
+        padding-top: 100px; // Adjust top padding for smaller screens
+    }
+}
+
+.chart-container {
+    width: 80%; // Set the width of the chart container
+    max-width: 800px; // Set the maximum width of the chart container
+    margin: 0 auto; // Center the chart container
+    background-color: #fff; // White background for the chart container
+    border-radius: 10px; // Rounded corners for the chart container
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Shadow effect for the chart container
     padding: 20px; // Add some padding for better spacing
 }
 
 .tagline {
     width: 50%; // Limit the width of the tagline
     margin-top: 50px; // Add some space above the tagline
+
+    @media (max-width: 768px) {
+        width: 80%; // Increase width for smaller screens
+        margin-top: 30px; // Reduce margin for smaller screens
+    }
 }
 
 h1 {
     margin-bottom: 20px; // Add some space below the h1 element
+
+    @media (max-width: 768px) {
+        font-size: 1.5em; // Adjust font size for smaller screens
+    }
 }
 
 h4 {
-    margin-top: 0; // Remove any default margin above the h5 element
-    margin-bottom: 20px; // Add some space below the h5 element
+    margin-top: 0; // Remove any default margin above the h4 element
+    margin-bottom: 20px; // Add some space below the h4 element
+
+    @media (max-width: 768px) {
+        font-size: 1.2em; // Adjust font size for smaller screens
+    }
 }
 
 h5 {
     margin-top: 0; // Remove any default margin above the h5 element
     margin-bottom: 20px; // Add some space below the h5 element
+
+    @media (max-width: 768px) {
+        font-size: 1em; // Adjust font size for smaller screens
+    }
 }
 
 .button-row {
     display: flex;
     gap: 10px; // Space between buttons
     margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; // Allow buttons to wrap on smaller screens
+
+    @media (max-width: 768px) {
+        justify-content: center; // Center buttons on smaller screens
+        margin-top: 30px; // Reduce margin for smaller screens
+    }
 }
 
 .button-row button {
@@ -42,58 +82,35 @@ h5 {
     background-color: transparent; // Transparent background
     color: #461315; // Button text color
     cursor: pointer; // Pointer cursor on hover
-    overflow: hidden; // Hide overflow for pseudo-element
-    transition: color 0.3s; // Smooth transition for text color
-    z-index: 1; // Ensure text is above the pseudo-element
-}
 
-.button-row button::before {
-    content: ''; // Empty content for pseudo-element
-    position: absolute; // Position absolute for pseudo-element
-    top: 100%; // Start from the bottom
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #69a67c2c; // Background color for fill
-    transition: top 0.3s; // Smooth transition for fill
-    z-index: 0; // Place behind the text
-}
+    &.active {
+        background-color: #461315; // Filled brown background for active button
+        color: #fff; // White text for active button
+    }
 
-.button-row button:hover:not(.active)::before {
-    top: 0; // Move to the top on hover
-}
-
-.button-row button:hover:not(.active) {
-    color: #fff; // Change text color on hover
-}
-
-.button-row button.active {
-    background-color: #461315; // Filled background color for active button
-    color: #fff; // Text color for active button
-}
-
-.button-row button:active {
-    background-color: #461315; // Filled background color on click
-    color: #fff; // Text color on click
-}
-
-.chart-container {
-    width: 60%; // Make the chart container 60% of the screen width
-    margin-top: 20px; // Add some space above the chart
-    background-color: #fff; // White background for the chart
-    border-radius: 10px; // Rounded corners for the chart
+    @media (max-width: 768px) {
+        padding: 8px 16px; // Adjust padding for smaller screens
+        font-size: 0.9em; // Adjust font size for smaller screens
+    }
 }
 
 .image-row {
     display: flex;
-    justify-content: space-between; // Distribute images evenly
-    align-items: center; // Center images vertically
-    width: 50%; // Make the image row take the full width of the parent
-    margin-top: 20px; // Add space above the image row
+    flex-wrap: wrap; // Allow images to wrap on smaller screens
+    justify-content: center; // Center images horizontally
+    gap: 20px; // Space between images
+    margin-top: 50px;
+
+    @media (max-width: 768px) {
+        flex-direction: column; // Stack images vertically on smaller screens
+        align-items: center; // Center images vertically
+    }
 }
 
-.image-row img {
-    max-width: 200px; // Set a maximum width for the images
-    height: auto; // Maintain the aspect ratio
-    border-radius: 10%; // Round the corners of the images
+.image-plus-description {
+    display: flex;
+    flex-direction: column; // Stack image and description vertically
+    align-items: center; // Center image and description horizontally
+    text-align: center; // Center text horizontally
+    max-width: 250px;
 }
