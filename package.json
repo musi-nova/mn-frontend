@@ -21,6 +21,7 @@
     "@primeng/themes": "^19.0.2",
     "@syncfusion/ej2-material-theme": "~28.2.3",
     "chart.js": "^4.4.7",
+    "ngx-owl-carousel-o": "^18.0.0",
     "ngx-stripe": "^18.1.0",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",

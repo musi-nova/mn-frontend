@@ -1,54 +1,63 @@
 <div class="main-content">
-    <div class="tagline">
-        <h1>
-            Promote your music on Spotify and gain real listeners
-        </h1>
+  <div class="tagline">
+    <h1>
+      Promote your music on Spotify and gain real listeners
+    </h1>
 
-        <h4>
-            Reach a wider audience and boost your music career with our Meta Ads platform. Whether you're an up-and-coming artist or an established musician, we have the tools to help you succeed.
-        </h4>
-    </div> 
+    <h4>
+      Reach a wider audience and boost your music career with our Meta Ads platform. Whether you're an up-and-coming artist or an established musician, we have the tools to help you succeed.
+    </h4>
+  </div> 
 
-    <div class="button-row">
-        <button (click)="updateChartData('Indie Rock', $event)" [class.active]="activeButton === 'Indie Rock'">Indie Rock</button>
-        <button (click)="updateChartData('Indie Pop', $event)" [class.active]="activeButton === 'Indie Pop'">Indie Pop</button>
-        <button (click)="updateChartData('Pop Fusion', $event)" [class.active]="activeButton === 'Pop Fusion'">Pop Fusion</button>
-        <button (click)="updateChartData('Electronic', $event)" [class.active]="activeButton === 'Electronic'">Electronic</button>
-    </div>
+  <div class="button-row">
+    <button (click)="updateChartData('Indie Rock')" [class.active]="activeButton === 'Indie Rock'">Indie Rock</button>
+    <button (click)="updateChartData('Indie Pop')" [class.active]="activeButton === 'Indie Pop'">Indie Pop</button>
+    <button (click)="updateChartData('Pop Fusion')" [class.active]="activeButton === 'Pop Fusion'">Pop Fusion</button>
+    <button (click)="updateChartData('Electronic')" [class.active]="activeButton === 'Electronic'">Electronic</button>
+  </div>
 
-    <!-- add a multi line plot using primeng-->
-    <div class="chart-container">
-        <p-chart type="line" [data]="data" [options]="options" height="400px"></p-chart>
-    </div>
+  <div class="chart-section">
+    <app-chart-config [activeButton]="activeButton"></app-chart-config>
+  </div>
 
-    <div class="button-row">
-        <button [routerLink]="['/login']">See demo</button>
-    </div>
+  <div class="button-row">
+    <button [routerLink]="['/login']">See demo</button>
+  </div>
 
-    <div class="tagline">
-        <h5>
-            Stop wasting money pitching—start growing your listeners today        </h5>
-        <h1>
-            Are you tired of pitching your music to playlists without success?
-        </h1>
+  <div class="tagline">
+    <h5>
+      Stop wasting money pitching—start growing your listeners today
+    </h5>
+    <h1>
+      Are you tired of pitching your music to playlists without success?
+    </h1>
+  </div>
+
+  <div class="image-row">
+    <div class="image-plus-description">
+      <img src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Guitar" />
+      <p>On average artists spend €300 for 50 streams of one song</p>
     </div>
-    <div class="image-row">
-        <div class="image-plus-description">
-            <img src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Guitar" />
-            <p>On average artists spend €300 for 50 streams of one song</p>
-        </div>
-        <div class="image-plus-description">
-            <img src="https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Dj" />
-            <p>On average artists spend €300 for 50 streams of one song</p>
-        </div>
-        <div class="image-plus-description">
-            <img src="https://images.pexels.com/photos/210907/pexels-photo-210907.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Piano" />
-            <p>On average artists spend €300 for 50 streams of one song</p>
-        </div>
-        <div class="image-plus-description">
-            <img src="https://images.pexels.com/photos/2601192/pexels-photo-2601192.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Guitar" />
-            <p>On average artists spend €300 for 50 streams of one song</p>
-        </div>
+    <div class="image-plus-description">
+      <img src="https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Dj" />
+      <p>On average artists spend €300 for 50 streams of one song</p>
     </div>
+    <div class="image-plus-description">
+      <img src="https://images.pexels.com/photos/210907/pexels-photo-210907.jpeg?auto=compress&cs=tinysrgb&w=200&h=50&dpr=2" alt="Dj" />
+      <p>On average artists spend €300 for 50 streams of one song</p>
+    </div>
+  </div>
+
+  <div class="video-carousel">
+    <input type="radio" name="position" [checked]="currentSlide === 0" (change)="setSlide(0)" />
+    <input type="radio" name="position" [checked]="currentSlide === 1" (change)="setSlide(1)" />
+    <input type="radio" name="position" [checked]="currentSlide === 2" (change)="setSlide(2)" />
+    <input type="radio" name="position" [checked]="currentSlide === 3" (change)="setSlide(3)" />
+    <input type="radio" name="position" [checked]="currentSlide === 4" (change)="setSlide(4)" />
+    <main id="carousel">
+      <div class="item" *ngFor="let video of videos; let i = index">
+        <video controls loop [src]="video" class="carousel-video" [autoplay]="i === currentSlide" [muted]="i !== currentSlide"></video>
+      </div>
+    </main>
+  </div>
 </div>
-
