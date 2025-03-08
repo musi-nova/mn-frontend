@@ -39,7 +39,7 @@ export class LoginComponent {
       password
     ).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       },
       error: (error) => {
         this.messageService.add({

@@ -1,8 +1,20 @@
-<div class="flex justify-content-center align-items-center min-h-screen">
-    <p-card header="Dashboard" [style]="{ width: '100%' }">
-        <div class="flex justify-content-between">
-            <h3>Welcome, {{ userInformation.email }}</h3>
-        </div>
-        
-    </p-card>
-</div>
+<div class="main-content">
+    <div class="tagline">
+      <h1>Welcome, {{ userInformation.name }}</h1>
+      <h4>Your email: {{ userInformation.email }}</h4>
+    </div>
+
+  
+    <div class="playlist-section" *ngIf="userPlaylists.length > 0">
+      <h2>Your Playlists</h2>
+      <div class="playlist-card" *ngFor="let playlist of userPlaylists">
+        <p><strong>Name:</strong> {{ playlist.playlist_name }}</p>
+        <p><strong>Owner:</strong> {{ playlist.owner_name }}</p>
+        <p><strong>Total Followers:</strong> {{ playlist.followers_total }}</p>
+      </div>
+    </div>
+  
+    <div class="no-playlists" *ngIf="userPlaylists.length === 0">
+      <p>No playlists available. Click "Load Playlists" to fetch your playlists.</p>
+    </div>
+  </div>
