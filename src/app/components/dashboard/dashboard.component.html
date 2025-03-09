@@ -1,25 +1,43 @@
 <app-sidebar (toggle)="onSidebarToggle($event)"></app-sidebar>
 <div class="dashboard-content"
   [ngClass]="{'sidebar-open': !isSidebarClosed, 'sidebar-closed': isSidebarClosed}">
-  <div class="main-content">
-    <div class="tagline">
-      <h1>Welcome, {{ userInformation.email }}</h1>
-    </div>
-    <p-dropdown 
-      [options]="playlistJobs" 
-      [(ngModel)]="selectedPlaylist" 
-      optionLabel="playlist_name" 
-      placeholder="Select a Playlist"
-      (onChange)="onPlaylistChange($event)">
-    </p-dropdown>
 
-    <div class="chart-section" *ngIf="userPlaylists.length > 0">
-      <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
-    </div>
+  <h1>Welcome, {{ userInformation.email }}</h1>
 
-    <div class="no-playlists" *ngIf="userPlaylists.length === 0">
-      <p>No playlist data available. We poll daily so give us a day, if it is longer than that, 
-        send us an <a href="mailto:musi.nova321@gmail.com">email</a> and we will look into it.</p>
+  <p-dropdown
+    [options]="playlistJobs"
+    [(ngModel)]="selectedPlaylist"
+    optionLabel="playlist_name"
+    placeholder="Select a Playlist"
+    (onChange)="onPlaylistChange($event)">
+  </p-dropdown>
+
+  <div class="playlist-info" *ngIf="userPlaylistSummary">
+    <img [src]="userPlaylistSummary.playlist_image_url" alt="playlist image">
+    <h2>{{ userPlaylistSummary.playlist_name }}</h2>
+    <ul>
+      <li>{{ userPlaylistSummary.playlist_description }}</li>
+      <li>Owner: {{ userPlaylistSummary.playlist_owner }}</li>
+      <li>Followers: {{ userPlaylistSummary.playlist_followers_total }}</li>
+      <li>Tracks: {{ userPlaylistSummary.playlist_tracks_total }}</li>
+      <li>Money Spent: ${{ userPlaylistSummary.spend }}</li>
+    </ul>
+  </div>
+
+  <div class="chart-section" *ngIf="userPlaylists.length > 0">
+    <div class="charts-container">
+      <p-chart type="line" [data]="chartData"
+        [options]="chartOptions"></p-chart>
+      <p-chart type="line" [data]="secondChartData"
+        [options]="secondChartOptions"></p-chart>
     </div>
   </div>
+
+  <div class="no-playlists" *ngIf="userPlaylists.length === 0">
+    <p>No playlist data available. We poll daily so give us a day, if it is
+      longer than that,
+      send us an <a href="mailto:musi.nova321@gmail.com">email</a> and we will
+      look into it.</p>
+  </div>
+  <button (click)="navigateToNewCampaign()" class="new-campaign-button">Create New Campaign</button>
 </div>

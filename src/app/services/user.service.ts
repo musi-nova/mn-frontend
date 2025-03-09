@@ -44,6 +44,24 @@ export class UserService {
       })
     );
   }
+  getUserPlaylistSummary(playlistId: string, campaignId: string) {
+    console.log('Calling getUserPlaylistSummary');
+    const token = this.authService.getToken(); // Get the token from AuthService
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `${this.baseUrl}/user/playlist/${playlistId}/campaign/${campaignId}/summary`;
+    
+    return this.http.get(url, { headers })
+    .pipe(
+      tap((response: any) => {
+        console.log('Summary:', response);
+      }
+      ),
+      catchError((error: any) => {
+        console.error('Error fetching user playlist summary:', error);
+        return throwError(() => new Error(error.message || 'Server error'));
+      })
+    );
+  }
   getUserPlaylist(playlistId: string, campaignId: string) {
     console.log('Calling getUserPlaylist');
     const token = this.authService.getToken(); // Get the token from AuthService
@@ -57,6 +75,23 @@ export class UserService {
       }),
       catchError((error: any) => {
         console.error('Error fetching user playlist:', error);
+        return throwError(() => new Error(error.message || 'Server error'));
+      })
+    );
+  }
+  getUserArtistTopTracks(artistId: string) {
+    console.log('Calling getUserArtistTopTracks');
+    const token = this.authService.getToken(); // Get the token from AuthService
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `${this.baseUrl}/user/artist/${artistId}/top-tracks`;
+
+    return this.http.get(url, { headers })
+    .pipe(
+      tap((response: any) => {
+        console.log('Top Tracks:', response);
+      }),
+      catchError((error: any) => {
+        console.error('Error fetching user artist top tracks:', error);
         return throwError(() => new Error(error.message || 'Server error'));
       })
     );

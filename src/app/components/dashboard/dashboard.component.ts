@@ -39,11 +39,15 @@ export class DashboardComponent implements OnInit {
   };
 
   userPlaylists: any[] = [];
+  userPlaylistSummary: any;
+  userArtistTopTracks: any[] = [];
   playlistJobs: any[] = [];
   isSidebarClosed = true;
   selectedPlaylist: any;
   chartData: any;
   chartOptions: any;
+  secondChartData: any;
+  secondChartOptions: any;
 
   private userService = inject(UserService);
   private router = inject(Router);
@@ -85,6 +89,22 @@ export class DashboardComponent implements OnInit {
     ).subscribe();
   }
 
+  loadUserPlaylistSummary(playlistId: string, campaignId: string) {
+    this.userService.getUserPlaylistSummary(playlistId, campaignId).pipe(
+      tap((response: any) => {
+        console.log('Summary:', response);
+        this.userPlaylistSummary = response;
+        this.prepareSecondChartData();
+      }
+      ),
+      catchError((error: any) => {
+        console.error('Error fetching user playlist summary:', error);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load user playlist summary' });
+        return of(null); // Return an observable with a null value
+      })
+    ).subscribe();
+  }
+
   loadUserPlaylist(playlistId: string, campaignId: string) {
     this.userService.getUserPlaylist(playlistId, campaignId).pipe(
       tap((response: any) => {
@@ -95,6 +115,20 @@ export class DashboardComponent implements OnInit {
       catchError((error: any) => {
         console.error('Error fetching user playlists:', error);
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load user playlists' });
+        return of(null); // Return an observable with a null value
+      })
+    ).subscribe();
+  }
+
+  loadUserArtistTopTracks(artistId: string) {
+    this.userService.getUserArtistTopTracks(artistId).pipe(
+      tap((response: any) => {
+        console.log('Top tracks:', response);
+        this.userArtistTopTracks = response;
+      }),
+      catchError((error: any) => {
+        console.error('Error fetching user artist top tracks:', error);
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load user artist top tracks' });
         return of(null); // Return an observable with a null value
       })
     ).subscribe();
@@ -167,7 +201,7 @@ export class DashboardComponent implements OnInit {
           position: 'left',
           ticks: {
             display: true, // Show y-axis labels
-            maxTicksLimit: 3 // Limit the number of y-axis ticks
+            maxTicksLimit: 4 // Limit the number of y-axis ticks
           },
         },
         y1: {
@@ -176,11 +210,96 @@ export class DashboardComponent implements OnInit {
           position: 'right',
           ticks: {
             display: true, // Show y-axis labels
-            maxTicksLimit: 3 // Limit the number of y-axis ticks
+            maxTicksLimit: 4 // Limit the number of y-axis ticks
           },
         }
       }
     };
+  }
+
+  prepareSecondChartData() {
+    // Create a set of unique dates for the labels
+    const uniqueDates = Array.from(new Set(this.userArtistTopTracks.map(track => new Date(track.created_at).toLocaleDateString())));
+  
+    // Group data by track_id
+    const trackDataMap = new Map();
+    this.userArtistTopTracks.forEach(track => {
+      if (!trackDataMap.has(track.track_id)) {
+        trackDataMap.set(track.track_id, {
+          label: track.track_name,
+          data: new Array(uniqueDates.length).fill(null), // Initialize with null values
+          backgroundColor: this.getRandomColor(),
+          borderColor: this.getRandomColor(),
+          fill: false,
+          yAxisID: 'y'
+        });
+      }
+      const dateIndex = uniqueDates.indexOf(new Date(track.created_at).toLocaleDateString());
+      trackDataMap.get(track.track_id).data[dateIndex] = track.track_popularity;
+    });
+  
+    // Convert map to array of datasets
+    const datasets = Array.from(trackDataMap.values());
+  
+    this.secondChartData = {
+      labels: uniqueDates,
+      datasets: datasets
+    };
+  
+    this.secondChartOptions = {
+      animation: false, // Turn off the initial animation
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true, // Show the legend
+          position: 'bottom', // Position the legend to the bottom
+        },
+      },
+      elements: {
+        line: {
+          tension: 0.4
+        },
+        point: {
+          radius: 2 // Hide the dots on the lines
+        }
+      },
+      layout: {
+        padding: {
+          left: 20, // Add padding to the left
+          right: 20, // Add padding to the right
+          top: 20, // Add padding to the top
+          bottom: 20 // Add padding to the bottom
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            callback: (value: any, index: any) => {
+              return this.secondChartData.labels[index]; // Return the label for the value
+            },
+            maxTicksLimit: 5 // Limit the number of x-axis ticks
+          }
+        },
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          ticks: {
+            display: true, // Show y-axis labels
+            maxTicksLimit: 4 // Limit the number of y-axis ticks
+          },
+        },
+      }
+    };
+  }
+  
+  getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 
   onSidebarToggle(isClosed: boolean) {
@@ -191,6 +310,11 @@ export class DashboardComponent implements OnInit {
     const selectedJob = this.playlistJobs.find(job => job.playlist_id === event.value.playlist_id);
     if (selectedJob) {
       this.loadUserPlaylist(selectedJob.playlist_id, selectedJob.campaign_id);
+      this.loadUserPlaylistSummary(selectedJob.playlist_id, selectedJob.campaign_id);
+      this.loadUserArtistTopTracks(selectedJob.artist_id);
     }
+  }
+  navigateToNewCampaign() {
+    this.router.navigate(['/new-campaign']);
   }
 }

@@ -1,6 +1,6 @@
-/* filepath: /Users/jamestwose/Coding/mn-frontend/src/app/components/dashboard/dashboard.component.scss */
 :host {
   display: flex;
+  padding-right: 50px; /* Add padding to the right */
 }
 
 app-sidebar {
@@ -17,20 +17,93 @@ app-sidebar {
 }
 
 .dashboard-content.sidebar-closed {
-  padding-left: 50px; /* Adjust padding when sidebar is closed */
+  padding-left: 20px; /* Adjust padding when sidebar is closed */
+}
+
+.main-content {
+  padding: 20px; /* Add padding to the main content */
+}
+
+.playlist-info {
+  width: 100%;
+  // max-width: 1200px;
+  display: flex;
+  flex-direction: row; /* Arrange items in a row */
+  align-items: center; /* Center items vertically */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.playlist-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  margin-right: 20px; /* Add space between image and text */
+}
+
+.playlist-info h2 {
+  margin-bottom: 0; /* Remove bottom margin */
+  font-size: 24px;
+  color: #333;
+}
+
+.playlist-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.playlist-info li {
+  margin: 5px 0;
+  color: #666;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .chart-section {
   width: 100%;
-  max-width: 800px;
-  margin: 20px auto; // Center the chart section and add some margin
-  min-height: 400px; // Set a minimum height for the chart section
-  align-items: center; // Center the chart horizontally
-  justify-content: center; // Center the chart vertically
-  background-color: #fff; // White background for the chart section
-  border-radius: 10px; // Rounded corners for the chart section
+  // max-width: 1200px;
+  margin: 20px auto; /* Center the chart section and add some margin */
+  background-color: #fff; /* White background for the chart section */
+  border-radius: 10px; /* Rounded corners for the chart section */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    width: 90%; // Adjust width for smaller screens
+    width: 90%; /* Adjust width for smaller screens */
   }
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Add space between the charts */
+}
+
+.charts-container p-chart {
+  flex: 1;
+  min-width: 0; /* Ensure the charts don't overflow */
+  height: 100%;
+}
+
+.new-campaign-button {
+  border: 2px solid #461315; /* Border color and width */
+  color: #000; /* Text color */
+  padding: 10px 20px; /* Padding for better appearance */
+  border-radius: 25px; /* Rounded corners */
+  background-color: transparent; /* Transparent background */
+  cursor: pointer;
+  margin-top: 20px; /* Add some margin to the top */
+  text-align: center;
+  width: 100%;
+}
+
+.new-campaign-button:hover {
+  background-color: #461315; /* Background color on hover */
+  color: #fff; /* Text color on hover */
 }

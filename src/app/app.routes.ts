@@ -6,6 +6,8 @@ import { PlansComponent } from './components/plans/plans.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ImageEditorComponent } from './components/image-editor/image-editor.component';
 import { ChartConfigComponent } from './components/chart-config/chart-config.component';
+import { NewCampaignComponent } from './components/new-campaign/new-campaign.component';
+import { PlaylistCheckerComponent } from './components/playlist-checker/playlist-checker.component';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -15,5 +17,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'image-editor', component: ImageEditorComponent },
   { path: 'chart-example', component: ChartConfigComponent },
+  { path: 'new-campaign', component: NewCampaignComponent },
+  { path: 'playlist-checker', component: PlaylistCheckerComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

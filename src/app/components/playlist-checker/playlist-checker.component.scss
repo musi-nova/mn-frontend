@@ -1,0 +1,69 @@
+:host {
+  display: flex;
+  padding-right: 50px; /* Add padding to the right */
+}
+
+.playlist-checker-container {
+  padding-left: 20px; /* Add padding to the left */
+}
+
+.input-container {
+  margin-top: 20px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-container .playlist-input {
+  display: flex;
+  align-items: center;
+}
+
+.input-container .playlist-input input {
+  flex: 1;
+  padding: 10px;
+  margin-left: 10px; /* Add space between text and input */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-container button {
+  background-color: #69a67c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #57a05a;
+}
+
+.playlist-info {
+  margin-top: 20px;
+  background-color: #fff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+.playlist-info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.playlist-info li {
+  margin: 5px 0;
+}
+
+.error-box {
+  background-color: #ffcccc;
+  color: #cc0000;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}

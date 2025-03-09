@@ -1,0 +1,48 @@
+<app-sidebar></app-sidebar>
+<div class="playlist-checker-container">
+  <h2>Playlist Checker</h2>
+  <div class="input-container">
+    <label for="playlist-id">Enter Playlist ID:</label>
+    <p class="playlist-input">
+      https://open.spotify.com/playlist/
+      <input type="text" id="playlist-id" [(ngModel)]="playlistId" placeholder="Playlist ID">
+    </p>
+    <button (click)="checkPlaylist()">Check</button>
+  </div>
+
+  <div *ngIf="playlistData" class="playlist-info">
+    <h3>{{ playlistData.playlist_name }}</h3>
+    <ul>
+      <li><strong>Description:</strong> {{ playlistData.playlist_description }}</li>
+      <li><strong>Owner:</strong> {{ playlistData.playlist_owner }}</li>
+      <li><strong>Owner Followers:</strong> {{ playlistData.playlist_owner_followers_total }}</li>
+      <li><strong>Playlist Followers:</strong> {{ playlistData.playlist_followers_total }}</li>
+      <li><strong>Tracks:</strong> {{ playlistData.playlist_tracks_total }}</li>
+      <li><strong>Duration (minutes):</strong> {{ playlistData.playlist_duration_minutes }}</li>
+      <li><strong>Track Popularity (mean):</strong> {{ playlistData.track_popularity_mean }}</li>
+      <li><strong>Track Popularity (min):</strong> {{ playlistData.track_popularity_min }}</li>
+      <li><strong>Track Popularity (max):</strong> {{ playlistData.track_popularity_max }}</li>
+      <li><strong>Artist Popularity (mean):</strong> {{ playlistData.artist_popularity_mean }}</li>
+      <li><strong>Artist Popularity (min):</strong> {{ playlistData.artist_popularity_min }}</li>
+      <li><strong>Artist Popularity (max):</strong> {{ playlistData.artist_popularity_max }}</li>
+    </ul>
+    <div *ngIf="!playlistData.checks.owner_vs_playlist_follower_ratio_cutoff" class="error-box">
+      Owner vs Playlist Follower Ratio is below the cutoff.
+    </div>
+    <div *ngIf="!playlistData.checks.playlist_has_description" class="error-box">
+      Playlist does not have a description.
+    </div>
+    <div *ngIf="!playlistData.checks.playlist_has_image" class="error-box">
+      Playlist does not have an image.
+    </div>
+    <div *ngIf="!playlistData.checks.mean_track_popularity_above_cutoff" class="error-box">
+      Mean track popularity is below the cutoff.
+    </div>
+    <div *ngIf="!playlistData.checks.sufficient_artists_above_popularity_cutoff" class="error-box">
+      Not enough artists are above the popularity cutoff.
+    </div>
+    <div *ngIf="!playlistData.checks.playlist_duration_minutes_between_cutoffs" class="error-box">
+      Playlist duration is not within the acceptable range.
+    </div>
+  </div>
+</div>

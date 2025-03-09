@@ -26,14 +26,14 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'musi-nova';
-  isDashboard: boolean = false;
+  showHeader: boolean = false;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isDashboard = event.urlAfterRedirects.includes('/dashboard');
+        this.showHeader = ['/home', '/login', '/register'].some(path => event.urlAfterRedirects.includes(path));
       }
     });
   }
