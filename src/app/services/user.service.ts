@@ -28,18 +28,35 @@ export class UserService {
       })
     );
   }
-  getUserPlaylists() {
-    console.log('Calling getUserPlaylists');
+  getUserPlaylistJobs() {
+    console.log('Calling getUserJobs');
     const token = this.authService.getToken(); // Get the token from AuthService
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    return this.http.get(`${this.baseUrl}/user/playlist`, { headers })
+    
+    return this.http.get(`${this.baseUrl}/user/playlist/jobs`, { headers })
     .pipe(
       tap((response: any) => {
-        console.log('Playlists:', response);
+        console.log('Jobs:', response);
       }),
       catchError((error: any) => {
-        console.error('Error fetching user playlists:', error);
+        console.error('Error fetching user jobs:', error);
+        return throwError(() => new Error(error.message || 'Server error'));
+      })
+    );
+  }
+  getUserPlaylist(playlistId: string, campaignId: string) {
+    console.log('Calling getUserPlaylist');
+    const token = this.authService.getToken(); // Get the token from AuthService
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `${this.baseUrl}/user/playlist/${playlistId}/campaign/${campaignId}`;
+
+    return this.http.get(url, { headers })
+    .pipe(
+      tap((response: any) => {
+        console.log('Playlist:', response);
+      }),
+      catchError((error: any) => {
+        console.error('Error fetching user playlist:', error);
         return throwError(() => new Error(error.message || 'Server error'));
       })
     );

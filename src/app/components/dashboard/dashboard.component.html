@@ -1,20 +1,25 @@
-<div class="main-content">
+<app-sidebar (toggle)="onSidebarToggle($event)"></app-sidebar>
+<div class="dashboard-content"
+  [ngClass]="{'sidebar-open': !isSidebarClosed, 'sidebar-closed': isSidebarClosed}">
+  <div class="main-content">
     <div class="tagline">
-      <h1>Welcome, {{ userInformation.name }}</h1>
-      <h4>Your email: {{ userInformation.email }}</h4>
+      <h1>Welcome, {{ userInformation.email }}</h1>
+    </div>
+    <p-dropdown 
+      [options]="playlistJobs" 
+      [(ngModel)]="selectedPlaylist" 
+      optionLabel="playlist_name" 
+      placeholder="Select a Playlist"
+      (onChange)="onPlaylistChange($event)">
+    </p-dropdown>
+
+    <div class="chart-section" *ngIf="userPlaylists.length > 0">
+      <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
     </div>
 
-  
-    <div class="playlist-section" *ngIf="userPlaylists.length > 0">
-      <h2>Your Playlists</h2>
-      <div class="playlist-card" *ngFor="let playlist of userPlaylists">
-        <p><strong>Name:</strong> {{ playlist.playlist_name }}</p>
-        <p><strong>Owner:</strong> {{ playlist.owner_name }}</p>
-        <p><strong>Total Followers:</strong> {{ playlist.followers_total }}</p>
-      </div>
-    </div>
-  
     <div class="no-playlists" *ngIf="userPlaylists.length === 0">
-      <p>No playlists available. Click "Load Playlists" to fetch your playlists.</p>
+      <p>No playlist data available. We poll daily so give us a day, if it is longer than that, 
+        send us an <a href="mailto:musi.nova321@gmail.com">email</a> and we will look into it.</p>
     </div>
   </div>
+</div>

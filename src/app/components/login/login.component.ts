@@ -7,6 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ import { MessageService } from 'primeng/api';
     CardModule,
     InputTextModule,
     PasswordModule,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

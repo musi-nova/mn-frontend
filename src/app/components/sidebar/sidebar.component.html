@@ -1,0 +1,48 @@
+<div class="sidebar" [class.closed]="isClosed">
+    <button (click)="toggleSidebar()" class="toggle-button">
+        <i *ngIf="!isClosed" class="pi pi-times"></i>
+        <i *ngIf="isClosed" class="pi pi-arrow-right"></i>
+    </button>
+    <div class="sidebar-content">
+        <!-- Add your sidebar content here -->
+        <div class="logo-container">
+            <a routerLink="/home">
+                <img src="logo.png" alt="MusiNova Logo" class="logo">
+            </a>
+        </div>
+        <div class="menu-container">
+            <ul>
+                <li>
+                    <a routerLink="/dashboard"
+                        routerLinkActive="active">Dashboard</a>
+                </li>
+                <li>
+                    <a routerLink="/new-campaign" routerLinkActive="active">New
+                        Campaign</a>
+                </li>
+                <li>
+                    <a routerLink="/tool-1" routerLinkActive="active">Tool 1</a>
+                </li>
+                <li>
+                    <a routerLink="/tool-2" routerLinkActive="active">Tool 2</a>
+                </li>
+                <li>
+                    <a routerLink="/tool-3" routerLinkActive="active">Tool 3</a>
+                </li>
+                <li>
+                    <a routerLink="/blog" routerLinkActive="active">Blog</a>
+                </li>
+                <li>
+                    <a routerLink="/help" routerLinkActive="active">Help</a>
+                </li>
+                <li>
+                    <a routerLink="/settings"
+                        routerLinkActive="active">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="logout-button-container">
+        <button class="logout-button" (click)="logout()">Logout</button>
+    </div>
+</div>

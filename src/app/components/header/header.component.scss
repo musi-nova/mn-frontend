@@ -9,7 +9,6 @@ header {
   width: 100%; // Ensure it spans the full width of the page
   z-index: 1000; // Ensure it is above other content
 
-
   .logo-container {
     display: flex;
     justify-content: left;
@@ -44,14 +43,14 @@ header {
       a:hover {
         text-decoration: underline;
       }
-      
+
       .bold-button a {
         background-color: #461315; // Fill color
         color: #fff; // Text color
         padding: 10px 20px; // Padding for better appearance
         border-radius: 25px; // Rounded corners
       }
-      
+
       .outline-button a {
         border: 2px solid #461315; // Border color and width
         color: #000; // Text color
@@ -59,7 +58,7 @@ header {
         border-radius: 25px; // Rounded corners
         background-color: transparent; // Transparent background
       }
-      
+
       .outline-button a:hover {
         background-color: #461315; // Background color on hover
         color: #fff; // Text color on hover

@@ -1,0 +1,36 @@
+/* filepath: /Users/jamestwose/Coding/mn-frontend/src/app/components/dashboard/dashboard.component.scss */
+:host {
+  display: flex;
+}
+
+app-sidebar {
+  width: 250px;
+}
+
+.dashboard-content {
+  flex: 1;
+  transition: padding 0.3s ease;
+}
+
+.dashboard-content.sidebar-open {
+  padding-left: 270px; /* Adjust padding when sidebar is open */
+}
+
+.dashboard-content.sidebar-closed {
+  padding-left: 50px; /* Adjust padding when sidebar is closed */
+}
+
+.chart-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; // Center the chart section and add some margin
+  min-height: 400px; // Set a minimum height for the chart section
+  align-items: center; // Center the chart horizontally
+  justify-content: center; // Center the chart vertically
+  background-color: #fff; // White background for the chart section
+  border-radius: 10px; // Rounded corners for the chart section
+
+  @media (max-width: 768px) {
+    width: 90%; // Adjust width for smaller screens
+  }
+}

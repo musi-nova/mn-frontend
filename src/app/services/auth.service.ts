@@ -42,4 +42,11 @@ export class AuthService {
     return this.token;
   }
 
+  logout() {
+    console.log('Logging out');
+    console.log('Token:', this.token);
+    this.token = null;
+    console.log('Token:', this.token);
+  }
+
 }
