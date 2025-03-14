@@ -1,40 +1,35 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, HostListener } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { ChartConfigComponent } from '../chart-config/chart-config.component';
+import { AdCarouselComponent } from '../ad-carousel/ad-carousel.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ButtonModule, RouterLink, ChartConfigComponent],
+  imports: [CommonModule, ButtonModule, RouterLink, ChartConfigComponent, AdCarouselComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private router = inject(Router);
+  isMobile: boolean = false;
   activeButton: string = 'Indie Rock';
-  videos: string[] = [
-    'assets/electronic-example.mp4',
-    'assets/alt-pop-example.mp4',
-    'assets/alt-rock-example.mp4',
-    'assets/indie-pop-example.mp4',
-  ];
-  currentSlide: number = 2;
 
-  ngOnInit() {}
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobile = window.innerWidth < 200;
+  }
+
+  ngOnInit() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isMobile = window.innerWidth < 200;
+  }
 
   updateChartData(genre: string) {
     this.activeButton = genre;
-  }
-
-  setSlide(index: number) {
-    this.currentSlide = index;
-    console.log(this.currentSlide);
-  }
-
-  logout() {
-    sessionStorage.clear();
-    this.router.navigate(['login']);
   }
 }

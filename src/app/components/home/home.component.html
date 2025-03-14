@@ -85,23 +85,13 @@
     </div>
 
   </div>
-  <div class="tagline">
+  <div class="tagline" *ngIf="!isMobile">
     <h1>
-      Check our ads which made real difference for artists
+      Check our ads which made a real difference for artists
     </h1>
   </div>
-  <div class="video-carousel">
-    <input type="radio" name="position" [checked]="currentSlide === 0" (change)="setSlide(0)" />
-    <input type="radio" name="position" [checked]="currentSlide === 1" (change)="setSlide(1)" />
-    <input type="radio" name="position" [checked]="currentSlide === 2" (change)="setSlide(2)" />
-    <input type="radio" name="position" [checked]="currentSlide === 3" (change)="setSlide(3)" />
-    <input type="radio" name="position" [checked]="currentSlide === 4" (change)="setSlide(4)" />
-    <main id="carousel">
-      <div class="item" *ngFor="let video of videos; let i = index">
-        <video controls loop [src]="video" class="carousel-video" [autoplay]="i === currentSlide" [muted]="i !== currentSlide"></video>
-      </div>
-    </main>
-  </div>
+  <app-ad-carousel *ngIf="!isMobile"></app-ad-carousel>
+  
   <div class="tagline">
     <h1>
       How does it work?

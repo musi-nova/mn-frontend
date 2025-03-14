@@ -17,7 +17,7 @@ export class PlaylistCheckerComponent {
   playlistId: string = '';
   playlistData: any = null; // Store playlist data
 
-  constructor(private toolsService: ToolsService) {} // Inject ToolsService
+  constructor(private toolsService: ToolsService) { } // Inject ToolsService
 
   checkPlaylist() {
     this.toolsService.getPlaylistChecker(this.playlistId).pipe(

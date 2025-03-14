@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -50,10 +51,15 @@ export class DashboardComponent implements OnInit {
   secondChartOptions: any;
 
   private userService = inject(UserService);
+  private authService = inject(AuthService);
   private router = inject(Router);
   private messageService = inject(MessageService);
 
   ngOnInit() {
+    const token = this.authService.getToken();
+    if (!token) {
+      this.router.navigate(['/login']);
+    }
     this.loadUserInfo();
     this.loadUserPlaylistJobs();
   }

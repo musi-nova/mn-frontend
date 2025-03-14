@@ -8,6 +8,8 @@ import { ImageEditorComponent } from './components/image-editor/image-editor.com
 import { ChartConfigComponent } from './components/chart-config/chart-config.component';
 import { NewCampaignComponent } from './components/new-campaign/new-campaign.component';
 import { PlaylistCheckerComponent } from './components/playlist-checker/playlist-checker.component';
+import { AdCarouselComponent } from './components/ad-carousel/ad-carousel.component';
+import { CreateSmartUrlComponent } from './components/create-smart-url/create-smart-url.component';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -19,5 +21,7 @@ export const routes: Routes = [
   { path: 'chart-example', component: ChartConfigComponent },
   { path: 'new-campaign', component: NewCampaignComponent },
   { path: 'playlist-checker', component: PlaylistCheckerComponent },
+  { path: 'create-smart-url', component: CreateSmartUrlComponent },
+  { path: 'ad-carousel', component: AdCarouselComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -122,76 +122,8 @@ h5 {
     max-width: 250px;
 }
 
-.video-carousel {
+app-ad-carousel {
+    max-width: 100%;
     width: 100%;
-    max-width: 800px;
-    margin: 20px auto; // Center the video carousel and add some margin
-    position: relative;
-    display: grid;
-    grid-template-rows: 500px 50px; // Adjusted to 50px for better alignment
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
-    align-items: center;
-    justify-items: center;
-
-    main#carousel {
-        grid-row: 1 / 2;
-        grid-column: 1 / 8;
-        width: 100%; // Adjusted to 100% for better centering
-        height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        transform-style: preserve-3d;
-        perspective: 600px;
-        --items: 5;
-        --middle: 3;
-        --position: 1;
-        pointer-events: none;
-    }
-
-    input:nth-of-type(1) {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-    }
-
-    input:nth-of-type(1):checked~main#carousel {
-        --position: 1;
-    }
-
-    input:nth-of-type(2) {
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
-    }
-
-    input:nth-of-type(2):checked~main#carousel {
-        --position: 2;
-    }
-
-    input:nth-of-type(3) {
-        grid-column: 4 / 5;
-        grid-row: 2 / 3;
-    }
-
-    input:nth-of-type(3):checked~main#carousel {
-        --position: 3;
-    }
-
-    input:nth-of-type(4) {
-        grid-column: 5 / 6;
-        grid-row: 2 / 3;
-    }
-
-    input:nth-of-type(4):checked~main#carousel {
-        --position: 4;
-    }
-
-    input:nth-of-type(5) {
-        grid-column: 6 / 7;
-        grid-row: 2 / 3;
-    }
-
-    input:nth-of-type(5):checked~main#carousel {
-        --position: 5;
-    }
+    border-radius: 20px;
 }

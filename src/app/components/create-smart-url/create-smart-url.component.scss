@@ -1,0 +1,82 @@
+:host {
+    display: flex;
+    padding-right: 50px;
+    /* Add padding to the right */
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #69a67c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+}
+
+.button:hover {
+    background-color: #57a05a;
+}
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+// this does not work
+.smart-url-link {
+    color: #69a67c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.smart-url-link:hover {
+    text-decoration: underline;
+}
+
+.smart-url-link:visited {
+    color: #33513c;
+}
+// 

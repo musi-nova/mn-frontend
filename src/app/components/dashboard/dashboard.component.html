@@ -2,7 +2,9 @@
 <div class="dashboard-content"
   [ngClass]="{'sidebar-open': !isSidebarClosed, 'sidebar-closed': isSidebarClosed}">
 
-  <h1>Welcome, {{ userInformation.email }}</h1>
+  <div class="user-icon">
+    <span>{{ userInformation.email.charAt(0).toUpperCase() }}</span>
+  </div>
 
   <p-dropdown
     [options]="playlistJobs"
