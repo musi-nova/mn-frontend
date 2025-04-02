@@ -1,18 +1,75 @@
 {
-    "labels": ["January", "February", "March", "April", "May", "June", "July"],
-    "datasets": [
-      {
-        "label": "Money Spent",
-        "data": [65, 59, 80, 81, 56, 55, 40],
-        "fill": true,
-        "backgroundColor": "rgba(70, 19, 21, 0.34)",
-        "borderColor": "#461315"
-      },
-      {
-        "label": "Amount of Views",
-        "data": [28, 48, 40, 19, 86, 27, 90],
-        "fill": false,
-        "borderColor": "#66BB6A"
-      }
-    ]
-  }
+  "labels": [
+    "February 1",
+    "February 2",
+    "February 3",
+    "February 5",
+    "February 6",
+    "February 7",
+    "February 8",
+    "February 9",
+    "February 10",
+    "February 11",
+    "February 12",
+    "February 13",
+    "February 14",
+    "February 15",
+    "February 16",
+    "February 17",
+    "February 18",
+    "February 19"
+  ],
+  "datasets": [
+    {
+      "label": "Money Spent",
+      "data": [
+        5.93,
+        3.58,
+        0.21,
+        0.67,
+        6.33,
+        10.54,
+        8.51,
+        15.51,
+        4.59,
+        4.66,
+        4.11,
+        4.32,
+        4.26,
+        4.21,
+        4.29,
+        4.01,
+        3.86,
+        1.83
+      ],
+      "fill": true,
+      "backgroundColor": "rgba(70, 19, 21, 0.34)",
+      "borderColor": "#461315"
+    },
+    {
+      "label": "Followers Total",
+      "data": [
+        65,
+        70,
+        72,
+        72,
+        73,
+        77,
+        89,
+        101,
+        131,
+        159,
+        172,
+        184,
+        201,
+        214,
+        236,
+        247,
+        262,
+        271
+      ],
+      "fill": false,
+      "borderColor": "#66BB6A"
+    }
+  ]
+}
