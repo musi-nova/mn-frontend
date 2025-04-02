@@ -1,6 +1,23 @@
 <app-sidebar></app-sidebar>
 <div class="main-content">
     <h1>Create Smart URL</h1>
+    <p>If this is your first time be sure to first subscribe and check out our tutorial!</p>
+    <div class="button-container">
+        <button (click)="showSubscribePopup = true">Subscribe</button>
+        <button (click)="openTutorial()">Tutorial</button>
+    </div>
+
+    <div class="subscribe-popup" *ngIf="showSubscribePopup">
+        <div class="popup-content">
+            <button class="close-button" (click)="closePopup()">&times;</button>
+            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+            <stripe-buy-button
+                buy-button-id="buy_btn_1R3EieFzM99oZp06TkwKZkcy"
+                publishable-key="pk_live_51QaZemFzM99oZp06IXMpKGIxtaqfy7ndZE0wFEmS89JQ8qPE3U2feDNjo6wQooAUlHlU8OWpRQSh5PoS4PmUW4AA009TyUZouA">
+            </stripe-buy-button>
+        </div>
+    </div>
+
     <form (ngSubmit)="onSubmit(smartUrlForm)" #smartUrlForm="ngForm">
         <div class="form-group">
             <label for="businessId">Business ID</label>

@@ -1,0 +1,98 @@
+/* General styles */
+.tagline {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+}
+
+.bold-block {
+  max-width: 1600px; // Set a maximum width for the block
+  display: flex;
+  flex-wrap: wrap; // Enable wrapping for mobile
+  justify-content: space-between; // Space out the two sections
+  gap: 2rem; // Add spacing between the sections
+  margin: 2rem 0;
+
+  .corner-paragraphs {
+    flex: 1 1 30%; // Take up 60% of the width on larger screens
+    display: flex;
+    flex-wrap: wrap; // Wrap the corner items
+    gap: 1.5rem; // Add spacing between corner items
+
+    .corner {
+      flex: 1 1 calc(50% - 1.5rem); // Two items per row
+      box-sizing: border-box; // Include padding and border in width calculation
+      padding: 1rem;
+      background-color: #f9f9f9; // Light background for contrast
+      border-radius: 10px; // Rounded corners
+      text-align: left;
+
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #666;
+      }
+    }
+
+    .button-row {
+      margin-top: 2rem;
+      text-align: center;
+
+      button {
+        border: 2px solid #461315; // Border color and width
+        color: #000; // Text color
+        padding: 10px 20px; // Padding for better appearance
+        border-radius: 25px; // Rounded corners
+        background-color: transparent; // Transparent background
+      }
+
+      button:hover {
+        background-color: #461315; // Background color on hover
+        color: #fff; // Text color on hover
+      }
+    }
+  }
+
+  .chart-section {
+    flex: 1 1 35%; // Take up 35% of the width on larger screens
+    min-width: 300px; // Ensure it doesn't shrink too much
+    background-color: #fff; // White background for the chart section
+    border-radius: 10px; // Rounded corners
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Add a subtle shadow
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .bold-block {
+    flex-direction: column; // Stack the sections vertically
+  }
+
+  .corner-paragraphs {
+    flex: 1 1 100%; // Full width for the left section
+  }
+
+  .chart-section {
+    flex: 1 1 100%; // Full width for the chart section
+    margin-top: 2rem; // Add spacing between the sections
+  }
+}

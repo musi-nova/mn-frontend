@@ -1,0 +1,93 @@
+/* General styles */
+.tagline {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .tagline h1 {
+    font-size: 1.5rem;
+  }
+
+  .tagline h4 {
+    font-size: 1rem;
+  }
+
+  .button-row button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .tagline {
+    max-width: 800px;
+  }
+
+  .button-row {
+    gap: 1.5rem;
+  }
+
+  .chart-section {
+    max-width: 900px;
+  }
+}
+
+.image-row {
+  display: flex;
+  flex-wrap: wrap; // Enable wrapping for the row
+  justify-content: center; // Center the items horizontally
+  gap: 1.5rem; // Add spacing between items
+  margin: 2rem 0; // Add some margin around the row
+
+  .image-plus-description {
+    display: flex;
+    flex-direction: column; // Stack image and description vertically
+    align-items: center; // Center align the content
+    text-align: center; // Center align the text
+    max-width: 200px; // Limit the width of each item
+    flex: 1 1 calc(33.33% - 1.5rem); // Responsive sizing for 3 items per row
+    box-sizing: border-box; // Include padding and border in width calculation
+
+    img {
+      width: 100%; // Make the image responsive
+      height: auto; // Maintain aspect ratio
+      border-radius: 10px; // Add rounded corners
+    }
+
+    p {
+      margin-top: 0.5rem; // Add spacing between the image and text
+      font-size: 0.9rem; // Adjust font size
+      color: #000000; // Set text color
+    }
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .image-plus-description {
+    flex: 1 1 calc(50% - 1rem); // Adjust to 2 items per row on smaller screens
+  }
+}
+
+@media (max-width: 480px) {
+  .image-plus-description {
+    flex: 1 1 100%; // Stack items vertically on very small screens
+  }
+}

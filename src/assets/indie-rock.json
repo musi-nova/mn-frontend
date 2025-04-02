@@ -1,18 +1,90 @@
 {
-    "labels": ["January", "February", "March", "April", "May", "June", "July"],
-    "datasets": [
+  "labels": [
+      "March 6",
+      "March 7",
+      "March 8",
+      "March 9",
+      "March 10",
+      "March 11",
+      "March 12",
+      "March 13",
+      "March 14",
+      "March 15",
+      "March 16",
+      "March 17",
+      "March 18",
+      "March 19",
+      "March 20",
+      "March 21",
+      "March 22",
+      "March 23",
+      "March 24",
+      "March 25",
+      "March 26",
+      "March 27",
+      "March 28"
+  ],
+  "datasets": [
       {
-        "label": "Money Spent",
-        "data": [1, 2, 3, 81, 56, 55, 40],
-        "fill": true,
-        "backgroundColor": "rgba(70, 19, 21, 0.34)",
-        "borderColor": "#461315"
+          "label": "Money Spent",
+          "data": [
+              3.11,
+              3.42,
+              3.46,
+              2.47,
+              2.86,
+              1.04,
+              2.51,
+              3.06,
+              3.72,
+              4.68,
+              2.13,
+              0.93,
+              5.14,
+              5.05,
+              1.08,
+              4.85,
+              1.78,
+              2.79,
+              2.91,
+              4.01,
+              3.24,
+              2.39,
+              1.21
+          ],
+          "fill": true,
+          "backgroundColor": "rgba(70, 19, 21, 0.34)",
+          "borderColor": "#461315"
       },
       {
-        "label": "Amount of Views",
-        "data": [28, 48, 40, 19, 86, 27, 90],
-        "fill": false,
-        "borderColor": "#66BB6A"
+          "label": "Followers Total",
+          "data": [
+              10,
+              12,
+              18,
+              25,
+              27,
+              30,
+              35,
+              38,
+              40,
+              42,
+              45,
+              47,
+              48,
+              50,
+              49,
+              46,
+              48,
+              50,
+              49,
+              47,
+              45,
+              48,
+              50
+          ],
+          "fill": false,
+          "borderColor": "#66BB6A"
       }
-    ]
-  }
+  ]
+}

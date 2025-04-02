@@ -1,0 +1,30 @@
+<div class="tagline">
+    <h1>
+        Promote your playlist on Spotify and gain real listeners
+    </h1>
+
+    <h4>
+        Reach a large audience and boost your music career with our Meta Ads
+        campaigns. Whether you're an up-and-coming
+        artist, an established musician or a label we have the tools to help you
+        succeed. </h4>
+</div>
+
+<div class="button-row">
+    <button (click)="updateChartData('Indie Rock')"
+        [class.active]="activeButton === 'Indie Rock'">Indie Rock</button>
+    <button (click)="updateChartData('Indie Pop')"
+        [class.active]="activeButton === 'Indie Pop'">Indie Pop</button>
+    <button (click)="updateChartData('Pop Fusion')"
+        [class.active]="activeButton === 'Pop Fusion'">Pop Fusion</button>
+    <button (click)="updateChartData('Electronic')"
+        [class.active]="activeButton === 'Electronic'">Electronic</button>
+</div>
+
+<div class="chart-section">
+    <app-chart-config [activeButton]="activeButton"></app-chart-config>
+</div>
+
+<div class="button-row">
+    <button [routerLink]="['/login']">Try now</button>
+</div>

@@ -127,3 +127,44 @@ app-ad-carousel {
     width: 100%;
     border-radius: 20px;
 }
+
+
+.how-it-works-section {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .how-it-works-section .tagline h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .steps-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+  
+  .step {
+    flex: 1 1 45%;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .step p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .step:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  

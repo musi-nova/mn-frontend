@@ -1,82 +1,118 @@
 :host {
-    display: flex;
-    padding-right: 50px;
-    /* Add padding to the right */
+  display: flex;
+  padding-right: 50px;
+  /* Add padding to the right */
 }
 
 .main-content {
-    flex: 1;
-    padding: 20px;
-    max-width: 800px;
+  flex: 1;
+  padding: 20px;
+  max-width: 800px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
 
-    input {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Add gap between buttons */
+  padding-bottom: 20px; /* Add padding to the bottom */
 }
 
 button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #69a67c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #69a67c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 
-    &:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 }
 
-.button:hover {
-    background-color: #57a05a;
+button:hover {
+  background-color: #57a05a;
 }
 
 h2 {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 p {
-    text-align: center;
-    font-size: 18px;
-    color: #333;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
 }
 
-// this does not work
 .smart-url-link {
-    color: #69a67c;
-    text-decoration: none;
-    font-weight: bold;
+  color: #69a67c;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .smart-url-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .smart-url-link:visited {
-    color: #33513c;
+  color: #33513c;
 }
-// 
+
+.subscribe-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-content {
+  position: relative;
+  display: flex;
+  justify-content: flex-start; /* Align items to the end (right) */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px; /* Increase font size */
+  padding: 5px; /* Add padding */
+  cursor: pointer;
+  color: #333;
+  z-index: 1001;
+}
